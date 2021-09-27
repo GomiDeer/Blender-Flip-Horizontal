@@ -3,7 +3,8 @@ bl_info = {
     "author": "@Gomi_Deer",
     "description": "(Default hotkey: Shift+F) Flips the active scene camera along it's x-axis. Useful to quickly see a composition in a new angle.",
     "version": (1, 0),
-    "blender" : (2, 93, 0),
+    "blender" : (2, 80, 0),
+    "category": "Scene"
 }
 
 import bpy
@@ -19,7 +20,6 @@ class FlipCameraOnLocalX(bpy.types.Operator):
     bl_label = "Flip Active Camera Horizontally"
     
     def execute(self, context):
-        #bpy.context.scene.camera.transform.resize(value=(-1, 1, 1))
         if bpy.context.scene.camera:
             bpy.context.scene.camera.scale = mathutils.Vector(x * y for x, y in zip(bpy.context.scene.camera.scale, mathutils.Vector((-1, 1, 1))))
         else:
